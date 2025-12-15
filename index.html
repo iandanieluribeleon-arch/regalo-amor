@@ -2,219 +2,198 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>La esencia que permanece</title>
+<title>Para Ti, Mi Amor</title>
 
 <style>
-body {
+html, body {
   margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at bottom, #020111, #000);
+  padding: 0;
+  height: 100%;
+  background: radial-gradient(circle at bottom, #05010d, #000);
   overflow-x: hidden;
-  color: #f5f5f5;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
+  color: white;
 }
 
-/* ESTRELLAS */
-.estrellas {
+.stars {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: moverEstrellas 60s linear infinite;
-  z-index: -3;
+  background: transparent;
+  overflow: hidden;
+  z-index: -1;
 }
 
-@keyframes moverEstrellas {
-  from { background-position: 0 0; }
-  to { background-position: -2000px 2000px; }
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.8;
+  animation: twinkle 5s infinite alternate;
 }
 
-/* FLORES */
-.flor {
-  position: fixed;
-  opacity: 0.2;
-  animation: flotar 14s ease-in-out infinite;
-  z-index: -2;
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
 }
 
-.rosa {
-  top: 10%;
-  left: -80px;
-  width: 240px;
-}
-
-.lirio {
-  bottom: 10%;
-  right: -80px;
-  width: 240px;
-  animation-delay: 5s;
-}
-
-@keyframes flotar {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(30px); }
-  100% { transform: translateY(0px); }
-}
-
-/* CONTENIDO */
-.contenedor {
-  max-width: 850px;
+.container {
+  max-width: 800px;
   margin: auto;
-  padding: 90px 40px;
+  padding: 60px 20px;
   text-align: center;
-  line-height: 2;
 }
 
-h1 {
-  font-weight: normal;
-  letter-spacing: 4px;
-  margin-bottom: 60px;
-}
-
-p {
-  margin-bottom: 30px;
-}
-
-/* ANILLO FINAL */
-.anillo {
-  margin-top: 90px;
-  opacity: 0;
-  transition: opacity 4s ease;
-}
-
-.anillo.mostrar {
-  opacity: 1;
-}
-
-.anillo img {
-  width: 130px;
-  filter: drop-shadow(0 0 18px rgba(255,255,255,0.5));
-}
-
-.final {
-  margin-top: 45px;
+.text {
   font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+  animation: fadeIn 4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.flowers {
+  margin: 40px 0;
+}
+
+.flowers img {
+  width: 120px;
+  margin: 0 15px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.flowers img:nth-child(2) {
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+#ring {
+  margin-top: 80px;
+  opacity: 0;
+  animation: ringAppear 4s ease forwards;
+  animation-delay: 6s;
+}
+
+#ring img {
+  width: 150px;
+}
+
+@keyframes ringAppear {
+  to { opacity: 1; }
+}
+
+#playBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid white;
+  padding: 14px 26px;
+  font-size: 16px;
+  border-radius: 30px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="estrellas"></div>
-
-<img src="img/rosas.png" class="flor rosa">
-<img src="img/lirios.png" class="flor lirio">
+<div class="stars" id="stars"></div>
 
 <audio id="musica" loop>
-  <source src="musica/old_enough.mp3" type="audio/mpeg">
+  <source src="audio/old_enough.mp3" type="audio/mpeg">
 </audio>
 
-<div class="contenedor">
+<button id="playBtn">▶ Escuchar</button>
 
-<h1>Esencia</h1>
+<div class="container">
 
-<p>
-Eres la esencia de mis días,<br>
-la respiración que mi alma busca cuando el mundo pesa,<br>
-el agua que calma mi vida cuando todo arde,<br>
-la voz suave que Dios puso en mi camino<br>
+  <div class="flowers">
+    <img src="imagenes/rosas.png" alt="Rosas blancas">
+    <img src="imagenes/lirios.png" alt="Lirios">
+  </div>
+
+  <div class="text">
+Eres la esencia de mis días,
+la respiración que mi alma busca cuando el mundo pesa,
+el agua que calma mi vida cuando todo arde,
+la voz suave que Dios puso en mi camino
 para recordarme que el amor también puede ser luz.
-</p>
 
-<p>
-En ti entiendo la naturaleza:<br>
-que el sol no nace para sí mismo,<br>
-que los ríos no corren sin destino,<br>
-que las raíces solo se aferran donde encuentran paz.<br>
-Así soy contigo:<br>
+En ti entiendo la naturaleza:
+que el sol no nace para sí mismo,
+que los ríos no corren sin destino,
+que las raíces solo se aferran donde encuentran paz.
+Así soy contigo:
 un corazón que por fin encontró dónde quedarse.
-</p>
 
-<p>
-Te amo mucho, mucho, muchísimo, mi amor.<br>
-Eres el amor de mi vida,<br>
-la mano que quiero sostener incluso cuando tiemblen mis pasos,<br>
+Te amo mucho, mucho, muchísimo, mi amor.
+Eres el amor de mi vida,
+la mano que quiero sostener incluso cuando tiemblen mis pasos,
 la mirada que quiero buscar cada amanecer.
-</p>
 
-<p>
-“Mujer virtuosa, ¿quién la hallará?<br>
-Porque su estima sobrepasa largamente a las piedras preciosas”<br>
-(Proverbios 31:10).<br>
-Y yo te encontré a ti…<br>
+“Mujer virtuosa, ¿quién la hallará?
+Porque su estima sobrepasa largamente a las piedras preciosas”
+(Proverbios 31:10).
+
+Y yo te encontré a ti…
 mi tesoro, mi bendición, mi propósito.
-</p>
 
-<p>
-Encomendamos nuestras almas a Dios,<br>
-porque Él es quien une lo que el mundo no puede separar:<br>
-“Y serán una sola carne… lo que Dios unió,<br>
-que no lo separe el hombre” (Mateo 19:5-6).
-</p>
+Encomendamos nuestras almas a Dios,
+porque Él es quien une lo que el mundo no puede separar:
+“Y serán una sola carne…
+lo que Dios unió, que no lo separe el hombre”
+(Mateo 19:5-6).
 
-<p>
-Quiero caminar contigo todos los días que me queden,<br>
-cuidarte con la paciencia del viento,<br>
-amarte con la firmeza de la montaña,<br>
+Quiero caminar contigo todos los días que me queden,
+cuidarte con la paciencia del viento,
+amarte con la firmeza de la montaña,
 y abrazarte como quien encuentra por fin su hogar.
-</p>
 
-<p>
-Porque tú, mi amor,<br>
-eres la esencia que sostiene mi alma,<br>
-la vida que Dios puso en mis manos,<br>
+Porque tú, mi amor,
+eres la esencia que sostiene mi alma,
+la vida que Dios puso en mis manos,
 y la eternidad que quiero compartir contigo.
-</p>
+  </div>
 
-<div class="anillo" id="anillo">
-  <img src="img/anillo.png" alt="Anillo">
-</div>
-
-<div class="final">
-  <p>
-    No como promesa impuesta,<br>
-    sino como elección consciente.
-  </p>
-
-  <p>
-    Si el amor es un acto de voluntad,<br>
-    hoy elijo quedarme.
-  </p>
-
-  <p>
-    Contigo.
-  </p>
-</div>
-
-<p><strong>— Ian</strong></p>
+  <div id="ring">
+    <img src="imagenes/anillo.png" alt="Anillo">
+    <p>¿Te quedarías conmigo para siempre?</p>
+  </div>
 
 </div>
 
 <script>
-const anillo = document.getElementById("anillo");
-const musica = document.getElementById("musica");
-let musicaIniciada = false;
-
-function iniciarMusica() {
-  if (!musicaIniciada) {
-    musica.volume = 0.3;
-    musica.play();
-    musicaIniciada = true;
-  }
+const stars = document.getElementById("stars");
+for (let i = 0; i < 120; i++) {
+  const s = document.createElement("div");
+  s.className = "star";
+  s.style.top = Math.random() * 100 + "%";
+  s.style.left = Math.random() * 100 + "%";
+  s.style.animationDelay = Math.random() * 5 + "s";
+  stars.appendChild(s);
 }
 
-window.addEventListener("scroll", () => {
-  iniciarMusica();
+const musica = document.getElementById("musica");
+const btn = document.getElementById("playBtn");
 
-  const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollActual = window.scrollY;
-
-  if (scrollActual >= scrollTotal - 50) {
-    anillo.classList.add("mostrar");
-  }
+btn.addEventListener("click", () => {
+  musica.volume = 0.35;
+  musica.play();
+  btn.style.display = "none";
 });
 </script>
 
 </body>
 </html>
- 
