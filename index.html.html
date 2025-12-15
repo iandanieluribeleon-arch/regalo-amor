@@ -2,116 +2,66 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>La esencia que permanece</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti, mi amor</title>
 
 <style>
 body {
   margin: 0;
-  min-height: 100vh;
-  background: radial-gradient(circle at bottom, #020111, #000);
-  overflow-x: hidden;
-  color: #f5f5f5;
-  font-family: 'Georgia', serif;
+  padding: 0;
+  min-height: 200vh;
+  font-family: Georgia, serif;
+  background: radial-gradient(circle at top, #0b1d3a, #000);
+  color: white;
 }
 
-/* ESTRELLAS */
-.estrellas {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: moverEstrellas 60s linear infinite;
-  z-index: -3;
+.contenedor {
+  max-width: 800px;
+  margin: auto;
+  padding: 80px 20px;
+  line-height: 1.9;
+  font-size: 1.2rem;
 }
 
-@keyframes moverEstrellas {
-  from { background-position: 0 0; }
-  to { background-position: -2000px 2000px; }
-}
-
-/* FLORES */
 .flor {
   position: fixed;
+  width: 150px;
   opacity: 0.2;
-  animation: flotar 14s ease-in-out infinite;
-  z-index: -2;
 }
 
-.rosa {
+#rosas {
   top: 10%;
-  left: -80px;
-  width: 240px;
+  left: -30px;
 }
 
-.lirio {
+#lirios {
   bottom: 10%;
-  right: -80px;
-  width: 240px;
-  animation-delay: 5s;
+  right: -30px;
 }
 
-@keyframes flotar {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(30px); }
-  100% { transform: translateY(0px); }
-}
-
-/* CONTENIDO */
-.contenedor {
-  max-width: 850px;
-  margin: auto;
-  padding: 90px 40px;
-  text-align: center;
-  line-height: 2;
-}
-
-h1 {
-  font-weight: normal;
-  letter-spacing: 4px;
-  margin-bottom: 60px;
-}
-
-p {
-  margin-bottom: 30px;
-}
-
-/* ANILLO FINAL */
-.anillo {
-  margin-top: 90px;
+#anillo {
   opacity: 0;
-  transition: opacity 4s ease;
+  text-align: center;
+  margin-top: 120px;
+  transition: opacity 2.5s;
 }
 
-.anillo.mostrar {
-  opacity: 1;
-}
-
-.anillo img {
-  width: 130px;
-  filter: drop-shadow(0 0 18px rgba(255,255,255,0.5));
-}
-
-.final {
-  margin-top: 45px;
-  font-size: 18px;
+#anillo img {
+  width: 150px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="estrellas"></div>
-
-<img src="img/rosas.png" class="flor rosa">
-<img src="img/lirios.png" class="flor lirio">
+<img src="imagenes/rosas.png" class="flor" id="rosas">
+<img src="imagenes/lirios.png" class="flor" id="lirios">
 
 <audio id="musica" loop>
   <source src="musica/old_enough.mp3" type="audio/mpeg">
 </audio>
 
 <div class="contenedor">
-
-<h1>Esencia</h1>
 
 <p>
 Eres la esencia de mis días,<br>
@@ -131,86 +81,41 @@ un corazón que por fin encontró dónde quedarse.
 </p>
 
 <p>
-Te amo mucho, mucho, muchísimo, mi amor.<br>
-Eres el amor de mi vida,<br>
-la mano que quiero sostener incluso cuando tiemblen mis pasos,<br>
-la mirada que quiero buscar cada amanecer.
+Te amo mucho, mucho, muchísimo, mi amor.
 </p>
 
 <p>
-“Mujer virtuosa, ¿quién la hallará?<br>
-Porque su estima sobrepasa largamente a las piedras preciosas”<br>
-(Proverbios 31:10).<br>
-Y yo te encontré a ti…<br>
-mi tesoro, mi bendición, mi propósito.
+“Mujer virtuosa, ¿quién la hallará?
+Porque su estima sobrepasa largamente a las piedras preciosas”
+(Proverbios 31:10).
 </p>
 
-<p>
-Encomendamos nuestras almas a Dios,<br>
-porque Él es quien une lo que el mundo no puede separar:<br>
-“Y serán una sola carne… lo que Dios unió,<br>
-que no lo separe el hombre” (Mateo 19:5-6).
-</p>
-
-<p>
-Quiero caminar contigo todos los días que me queden,<br>
-cuidarte con la paciencia del viento,<br>
-amarte con la firmeza de la montaña,<br>
-y abrazarte como quien encuentra por fin su hogar.
-</p>
-
-<p>
-Porque tú, mi amor,<br>
-eres la esencia que sostiene mi alma,<br>
-la vida que Dios puso en mis manos,<br>
-y la eternidad que quiero compartir contigo.
-</p>
-
-<div class="anillo" id="anillo">
-  <img src="img/anillo.png" alt="Anillo">
+<div id="anillo">
+  <img src="imagenes/anillo.png">
+  <p>¿Caminamos juntos para siempre?</p>
 </div>
-
-<div class="final">
-  <p>
-    No como promesa impuesta,<br>
-    sino como elección consciente.
-  </p>
-
-  <p>
-    Si el amor es un acto de voluntad,<br>
-    hoy elijo quedarme.
-  </p>
-
-  <p>
-    Contigo.
-  </p>
-</div>
-
-<p><strong>— Ian</strong></p>
 
 </div>
 
 <script>
-const anillo = document.getElementById("anillo");
 const musica = document.getElementById("musica");
-let musicaIniciada = false;
+const anillo = document.getElementById("anillo");
+let iniciado = false;
 
-function iniciarMusica() {
-  if (!musicaIniciada) {
-    musica.volume = 0.3;
+function iniciar() {
+  if (!iniciado) {
+    musica.volume = 0.35;
     musica.play();
-    musicaIniciada = true;
+    iniciado = true;
   }
 }
 
+document.addEventListener("click", iniciar);
+document.addEventListener("touchstart", iniciar);
+
 window.addEventListener("scroll", () => {
-  iniciarMusica();
-
-  const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollActual = window.scrollY;
-
-  if (scrollActual >= scrollTotal - 50) {
-    anillo.classList.add("mostrar");
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+    anillo.style.opacity = 1;
   }
 });
 </script>
